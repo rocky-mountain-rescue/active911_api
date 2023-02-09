@@ -1,3 +1,9 @@
+---
 exclude_paths:
   - tmp
   - vendor
+
+detectors:
+  UncommunicativeModuleName:
+    accept:
+      - Active
