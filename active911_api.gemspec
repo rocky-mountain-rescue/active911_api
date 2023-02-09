@@ -5,19 +5,17 @@ Gem::Specification.new do |spec|
   spec.version = "0.0.0"
   spec.authors = ["Pawel Osiczko"]
   spec.email = ["p.osiczko@tetrapyloctomy.org"]
-  spec.homepage = ""
-  spec.summary = ""
+  spec.homepage = "https://github.com/rockymountainrescue/active911_api"
+  spec.summary = "Active91 API in Ruby"
   spec.license = "Hippocratic-2.1"
 
-  spec.metadata = {
-    "label" => "Active911 Api",
-    "rubygems_mfa_required" => "true"
-  }
+  spec.metadata = {"label" => "Active911 API", "rubygems_mfa_required" => "true"}
 
   spec.signing_key = Gem.default_key_path
   spec.cert_chain = [Gem.default_cert_path]
 
   spec.required_ruby_version = "~> 3.2"
+  spec.add_dependency "dotenv", "~> 2.8.1"
   spec.add_dependency "refinements", "~> 10.0"
   spec.add_dependency "zeitwerk", "~> 2.6"
 

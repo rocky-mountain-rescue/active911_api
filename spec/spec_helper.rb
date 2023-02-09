@@ -14,7 +14,7 @@ unless ENV["NO_COVERAGE"]
   end
 end
 
-require "active911_api"
+require "active911"
 require "refinements"
 
 SPEC_ROOT = Pathname(__dir__).realpath.freeze

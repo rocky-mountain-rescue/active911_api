@@ -4,7 +4,10 @@
 require "bundler/setup"
 Bundler.require :tools
 
-require_relative "../lib/active911_api"
+require_relative "../lib/active911"
+require "dotenv/load"
 require "irb"
 
+Dotenv.load
+@client = Active911::API::Client.new api_key: ENV.fetch("ACTIVE911_TOKEN", nil)
 IRB.start __FILE__
