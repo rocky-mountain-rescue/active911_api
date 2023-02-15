@@ -9,5 +9,25 @@ require "dotenv/load"
 require "irb"
 
 Dotenv.load
-@client = Active911::API::Client.new api_key: ENV.fetch("ACTIVE911_TOKEN", nil)
+@client = Active911::API::Client.new api_refresh_key: ENV.fetch("ACTIVE911_API_REFRESH_KEY")
+
+# result = @client.agency.get
+# result.message.agency
+
+# result = @client.device.get(device_id: 84953)
+# result = @client.locations.index
+
+# result = @client.locations.show(location_id: 17519963)
+# result.message.locations.name
+
+# result = @client.alerts.index(alert_days: 1)
+# result
+
+
+# result = @client.alerts.show(alert_id: 379581573)
+# result.message.alert.responses
+# result
+
+result = @client.device.get(device_id: 590705)
+result
 IRB.start __FILE__

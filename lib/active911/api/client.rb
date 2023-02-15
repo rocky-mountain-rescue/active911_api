@@ -34,7 +34,14 @@ module Active911
         DeviceResource.new self
       end
 
-      def alerts; end
+      def alerts
+        AlertsResource.new self
+      end
+
+      def alert
+        AlertsResource.new self
+      end
+
 
       def deviceAlerts; end
 

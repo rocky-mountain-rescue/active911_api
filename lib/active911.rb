@@ -25,5 +25,9 @@ module Active911
     autoload :Location, "active911/api/models/location"
     autoload :Locations, "active911/api/models/locations"
     autoload :LocationsResource, "active911/api/resources/locations_resource"
+
+    autoload :Alert, "active911/api/models/alert"
+    autoload :Alerts, "active911/api/models/Alerts"
+    autoload :AlertsResource, "active911/api/resources/alerts_resource"
   end
 end
