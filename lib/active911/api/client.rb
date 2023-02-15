@@ -38,9 +38,12 @@ module Active911
 
       def deviceAlerts; end
 
-      def locations; end
+      def locations
+        LocationsResource.new self
+      end
 
       def location
+        LocationsResource.new self
       end
 
       def resource
