@@ -18,5 +18,7 @@ module Active911
 
     autoload :Agency, "active911/api/models/agency"
     autoload :AgencyResource, "active911/api/resources/agency_resource"
+    autoload :Device, "active911/api/models/device"
+    autoload :DeviceResource, "active911/api/resources/device_resource"
   end
 end
