@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # namespace Active911
 module Active911
   # API namespace

@@ -23,11 +23,10 @@ Dotenv.load
 # result = @client.alerts.index(alert_days: 1)
 # result
 
-
 # result = @client.alerts.show(alert_id: 379581573)
 # result.message.alert.responses
 # result
 
-result = @client.device.get(device_id: 590705)
+result = @client.device.get device_id: 590705
 result
 IRB.start __FILE__

@@ -1,30 +1,32 @@
+# frozen_string_literal: true
+
 module Active911
   module API
     class Resource
       attr_reader :client
 
-      def initialize(client)
+      def initialize client
         client.get_access_token
         @client = client
       end
 
-      def get_request(url, params: {}, headers: {})
+      def get_request url, params: {}, headers: {}
         handle_response client.connection.get(url, params, default_headers.merge(headers))
       end
 
-      def post_request(url, body:, headers: {})
+      def post_request url, body:, headers: {}
         handle_response client.connection.post(url, body, default_headers.merge(headers))
       end
 
-      def put_request(url, body:, headers: {})
+      def put_request url, body:, headers: {}
         handle_response client.connection.put(url, body, default_headers.merge(headers))
       end
 
-      def patch_request(url, body: {}, headers: {})
+      def patch_request url, body: {}, headers: {}
         handle_response client.connection.patch(url, body, default_headers.merge(headers))
       end
 
-      def delete(url, params: {}, headers: {})
+      def delete url, params: {}, headers: {}
         handle_response client.connection.delete(url, params, default_headers.merge(headers))
       end
 
@@ -34,28 +36,28 @@ module Active911
         }
       end
 
-      def handle_response(response)
+      def handle_response response
         case response.status
           when 400
-            raise Error, response.body
+            fail Error, response.body
           when 401
-            raise Error, response.body
+            fail Error, response.body
           when 403
-            raise Error, response.body
+            fail Error, response.body
           when 404
-            raise Error, response.body
+            fail Error, response.body
           when 429
-            raise Error, response.body
+            fail Error, response.body
           when 500
-            raise Error, response.body
+            fail Error, response.body
         end
         response
       end
 
       private
 
-      def error_meta_info(body)
-        body.dig("meta").to_s
+      def error_meta_info body
+        body["meta"].to_s
       end
     end
   end
