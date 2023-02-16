@@ -1,7 +1,7 @@
 module Active911
   module API
     class DeviceResource < Resource
-      def get(device_id:)
+      def show(device_id:)
         result = get_request("devices/#{device_id}")
         # API unfortunately returns HTML instead of JSON encoding
         # even though the content-type is set to application/json

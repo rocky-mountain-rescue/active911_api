@@ -1,0 +1,21 @@
+{
+  "result": "success",
+  "message": {
+    "agency": {
+      "id": "123",
+      "name": "Rescue Group",
+      "address": "123 Main Street",
+      "city": "Anytown",
+      "state": "US-CO",
+      "zip": "80001",
+      "latitude": "40.0",
+      "longitude": "-105.0",
+      "devices": [
+        {
+          "id": "456",
+          "uri": "https://access.active911.com/interface/open_api/api/devices/456"
+        }
+      ]
+    }
+  }
+}

@@ -12,14 +12,15 @@ module Active911
       BASE_URL = ENV.fetch "ACTIVE911_BASE_URL", "https://access.active911.com/interface/open_api/api/"
       attr_reader :adapter, :api_key, :api_key_expiration, :api_refresh_key
 
-      def initialize(api_refresh_key:, adapter: Faraday.default_adapter)
+      def initialize(api_refresh_key:, adapter: Faraday.default_adapter, stubs: nil)
         @api_refresh_key = api_refresh_key
         @adapter         = adapter
+        @stubs           = stubs
       end
 
       def connection
         @connection ||= Faraday.new do |connection|
-          connection.adapter adapter
+          connection.adapter @adapter, @stubs
           connection.url_prefix = BASE_URL
           connection.request :json
           connection.response :json, content_type: /\bjson$/
@@ -77,7 +78,7 @@ module Active911
 
       def refresh_access_token
         conn   = Faraday.new("https://console.active911.com/interface/dev/api_access.php") do |f|
-          f.adapter Faraday.default_adapter
+          f.adapter @adapter, @stubs
           f.request :url_encoded
         end
         response = conn.post("", refresh_token: api_refresh_key)
@@ -86,6 +87,7 @@ module Active911
             body_parsed         = JSON.parse(response.body)
             @api_key            = body_parsed["access_token"]
             @api_key_expiration = body_parsed["expiration"]
+            body_parsed
           rescue JSON::ParserError
             raise Error, "Invalid response from Active911 API: #{response.body}"
           end

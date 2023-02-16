@@ -1,7 +1,7 @@
 module Active911
   module API
     class AgencyResource < Resource
-      def get
+      def show
         result = get_request("")
         # API unfortunately returns HTML instead of JSON encoding
         # even though the content-type is set to application/json
