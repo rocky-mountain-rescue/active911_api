@@ -5,8 +5,10 @@ require "ostruct"
 module Active911
   module API
     class Model < OpenStruct
+      attr_reader :to_json
       def initialize attributes
         super to_ostruct(attributes)
+        @to_json = attributes
       end
 
       def to_ostruct obj
