@@ -11,7 +11,7 @@ Reek::Rake::Task.new
 RSpec::Core::RakeTask.new
 RuboCop::RakeTask.new
 
-desc "Run code quality checks"
-task code_quality: %i[git_lint reek rubocop]
+desc("Run code quality checks")
+task(code_quality: %i[git_lint reek rubocop])
 
-task default: %i[code_quality spec]
+task(default: %i[code_quality spec])

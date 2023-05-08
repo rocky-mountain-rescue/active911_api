@@ -1,2 +1,32 @@
+require:
+  - rubocop-performance
+  - rubocop-rake
+  - rubocop-rspec
+
 inherit_gem:
-  caliber: config/all.yml
+  rubocop-shopify: rubocop.yml
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - node_modules/**/*
+    - public/**/*
+    - vendor/**/*
+
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: false # allow spaces inside hash braces
+Style/ClassMethodsDefinitions:
+  Enabled: false # allow class methods to be defined before instance methods
+Style/ClassAndModuleChildren:
+  Enabled: false # allow nested classes and modules
+Style/OpenStructUse:
+  Enabled: false # allow OpenStruct
+Style/TrailingCommaInArguments:
+  Enabled: false # allow trailing commas in method calls
+Style/TrailingCommaInHashLiteral:
+  Enabled: false # allow trailing commas in hashes
+
+RSpec:
+  Enabled: true # enable rubocop-rspec cops
+RSpec/DescribeClass:
+  Enabled: false # ignore missing comments on classes

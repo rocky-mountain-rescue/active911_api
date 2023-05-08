@@ -2,6 +2,7 @@
 # frozen_string_literal: true
 
 require "bundler/setup"
+
 Bundler.require :tools
 
 require_relative "../lib/active911"
@@ -9,7 +10,7 @@ require "dotenv/load"
 require "irb"
 
 Dotenv.load
-@client = Active911::API::Client.new api_refresh_key: ENV.fetch("ACTIVE911_API_REFRESH_KEY")
+@client = Active911::API::Client.new(api_refresh_key: ENV.fetch("ACTIVE911_API_REFRESH_KEY"))
 
 # result = @client.agency.get
 # result.message.agency
@@ -27,6 +28,6 @@ Dotenv.load
 # result.message.alert.responses
 # result
 
-result = @client.device.get device_id: 590705
+result = @client.device.get(device_id: 590705)
 result
-IRB.start __FILE__
+IRB.start(__FILE__)

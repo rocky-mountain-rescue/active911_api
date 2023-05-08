@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
-# namespace Active911
-module Active911
-  # API namespace
-  module API
-    # Error class
-    class Error < StandardError; end
+module Active911::API
+  class Error < StandardError
   end
 end

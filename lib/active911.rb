@@ -3,7 +3,7 @@
 require "zeitwerk"
 
 Zeitwerk::Loader.for_gem.then do |loader|
-  loader.inflector.inflect "api" => "API"
+  loader.inflector.inflect("api" => "API")
   loader.setup
 end
 
