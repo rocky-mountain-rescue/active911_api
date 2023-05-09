@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-module Active911
-  module API
-    class Locations < Model
-    end
+module Active911::API::Models
+  class Locations < Active911::API::Model
   end
 end

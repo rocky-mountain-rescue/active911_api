@@ -1,0 +1,21 @@
+{
+  "result": "success",
+  "message": {
+    "resource": {
+      "id": "1",
+      "title": "(Name of the title)",
+      "filename": "(Filename)",
+      "extension": "(File extension)",
+      "size": "(File size in bytes)",
+      "details": "(Details about the file)",
+      "agency": {
+        "id": "(Agency id number)",
+        "uri": "(API URI to access the agency data)"
+      },
+      "location": {
+        "id": "(Location id number)",
+        "uri": "(API URI to access the location data)"
+      }
+    }
+  }
+}

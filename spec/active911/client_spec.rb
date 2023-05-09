@@ -19,7 +19,7 @@ RSpec.describe Active911::API::Client do
       .to_return(status: 200, body: "{\"access_token\":\"baz\",\"expiration\":123}", headers: {})
 
     client = described_class.new(api_refresh_key: "bar")
-    client.get_access_token
+    client.access_token
     expect(client.api_key).to(eql("baz"))
     expect(client.api_key_expiration).to(be(123))
   end

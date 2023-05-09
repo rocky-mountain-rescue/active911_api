@@ -5,7 +5,7 @@ module Active911::API
     attr_reader :client
 
     def initialize(client)
-      client.get_access_token
+      client.access_token
       @client = client
     end
 

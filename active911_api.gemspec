@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name = "active911_api"
-  spec.version = "0.0.0"
+  spec.version = "0.0.1"
   spec.authors = ["Pawel Osiczko"]
   spec.email = ["p.osiczko@tetrapyloctomy.org"]
   spec.homepage = "https://github.com/rockymountainrescue/active911_api"

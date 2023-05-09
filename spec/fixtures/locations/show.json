@@ -1,0 +1,16 @@
+{
+  "result": "success",
+  "message": {
+    "locations": {
+      "id": "1",
+      "name": "loc_1",
+      "description": "Location Name",
+      "location_type": "building",
+      "icon_color": "gray",
+      "icon_id": "20",
+      "latitude": "39.0",
+      "longitude": "-105.0",
+      "resources": []
+    }
+  }
+}

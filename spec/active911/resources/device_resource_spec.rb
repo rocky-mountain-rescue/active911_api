@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe Active911::API::DeviceResource do
+RSpec.describe Active911::API::Resources::DeviceResource do
   include_context("with required environmental variables")
   include_context("with Active911::API::Client api_key request stub")
 
@@ -18,8 +18,9 @@ RSpec.describe Active911::API::DeviceResource do
       stub_request(:get, "https://access.active911.com/interface/open_api/api/devices/1")
         .to_return(status: 200, body: File.read("spec/fixtures/device/show.json"), headers: {})
 
-      expect(resource.show(device_id: 1)).to(be_a(Active911::API::Device))
-      expect(resource.show(device_id: 1).message.device.id).to(be(1))
+      unit_under_test = resource.show(device_id: 1)
+      expect(unit_under_test).to(be_a(Active911::API::Models::Device))
+      expect(unit_under_test.message.device.id).to(eql("1"))
     end
   end
 end

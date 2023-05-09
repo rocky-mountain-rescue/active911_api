@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-module Active911::API
-  class AgencyResource < Resource
+module Active911::API::Resources
+  class AgencyResource < Active911::API::Resource
     def show
       result = get_request("")
       # API unfortunately returns HTML instead of JSON encoding
@@ -10,13 +10,16 @@ module Active911::API
       begin
         json_body = JSON.parse(result.body)
       rescue JSON::ParserError
+        error_message = <<~END
+          Non JSON response received from Active911 (/) API: URL: #{result.env.url}, body: #{result.body}
+        END
         raise(
           Error,
-          "Non JSON response received from Active911 (/) API: URL: #{result.env.url}, body: #{result.body}"
+          error_message
         )
       end
 
-      Agency.new(json_body)
+      Active911::API::Models::Agency.new(json_body)
     end
   end
 end

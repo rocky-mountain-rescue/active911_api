@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-module Active911::API
-  class DeviceResource < Resource
+module Active911::API::Resources
+  class DeviceResource < Active911::API::Resource
     def show(device_id:)
       result = get_request("devices/#{device_id}")
       # API unfortunately returns HTML instead of JSON encoding
@@ -10,16 +10,16 @@ module Active911::API
       begin
         json_body = JSON.parse(result.body)
       rescue JSON::ParserError
-        warning = <<~END
+        error_message = <<~END
           Non JSON response received from Active911 (/devices/#{device_id}) API: URL: #{result.env.url}, body: #{result.body}
         END
         raise(
           Error,
-          warning
+          error_message
         )
       end
 
-      Device.new(json_body)
+      Active911::API::Models::Device.new(json_body)
     end
   end
 end

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe Active911::API::AgencyResource do
+RSpec.describe Active911::API::Resources::AgencyResource do
   include_context("with required environmental variables")
   include_context("with Active911::API::Client api_key request stub")
 
@@ -18,7 +18,7 @@ RSpec.describe Active911::API::AgencyResource do
       stub_request(:get, "https://access.active911.com/interface/open_api/api/")
         .to_return(status: 200, body: File.read("spec/fixtures/agency/show.json"), headers: {})
 
-      expect(resource.show).to(be_a(Active911::API::Agency))
+      expect(resource.show).to(be_a(Active911::API::Models::Agency))
       expect(resource.show.message.agency.name).to(eql("Rescue Group"))
     end
   end
