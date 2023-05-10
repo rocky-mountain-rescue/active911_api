@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Active911::API::Resources
+  # LocationsResource is a representation of the Locations API endpoint
   class LocationsResource < Active911::API::Resource
     def show(location_id:)
       result = get_request("locations/#{location_id}")

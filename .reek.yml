@@ -10,13 +10,9 @@ detectors:
     enabled: false
   FeatureEnvy:
     enabled: false
-  IrresponsibleModule:
+  UtilityFunction:
     enabled: false
-  LongParameterList:
-    max_params: 4
 
-  TooManyInstanceVariables:
-    max_instance_variables: 5
 
   #
   # Project rules
@@ -24,18 +20,18 @@ detectors:
   UncommunicativeModuleName:
     accept:
       - Active911
-
-  UtilityFunction:
-    enabled: false
-
   #
   # Global Rules
   #
+  LongParameterList:
+    max_params: 4
   NestedIterators:
     enabled: true
     exclude: [ ]
     max_allowed_nesting: 2
     ignore_iterators:
       - tap
+  TooManyInstanceVariables:
+    max_instance_variables: 5
   TooManyStatements:
     max_statements: 15

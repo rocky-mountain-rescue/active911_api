@@ -3,6 +3,7 @@
 require "ostruct"
 
 module Active911::API
+  # Model is the base class for all models returned by the Active911 API.
   class Model < OpenStruct
     attr_reader :to_json
 

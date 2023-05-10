@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 module Active911::API
+  # Resource class uses the Faraday connection encapsulated by connection
+  # to talk to the Active911 API. Individual Resource API endpoints classes
+  # inherit from this class.
   class Resource
     attr_reader :client
 

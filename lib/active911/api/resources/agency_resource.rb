@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Active911::API::Resources
+  # AgencyResource is a representation of the Agency API endpoint
   class AgencyResource < Active911::API::Resource
     def show
       result = get_request("")

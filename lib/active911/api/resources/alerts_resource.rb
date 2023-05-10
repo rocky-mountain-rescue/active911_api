@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Active911::API::Resources
+  # AlertsResource is a representation of the Alerts API endpoint
   class AlertsResource < Active911::API::Resource
     def show(alert_id:)
       result = get_request("alerts/#{alert_id}")

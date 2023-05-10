@@ -4,6 +4,7 @@ require "faraday"
 require "faraday/middleware"
 
 module Active911::API
+  # Client is the main entry point for making requests to the Active911 API.
   class Client
     BASE_URL = ENV.fetch("ACTIVE911_BASE_URL", "https://access.active911.com/interface/open_api/api/")
 

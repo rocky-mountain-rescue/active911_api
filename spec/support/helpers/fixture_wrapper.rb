@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# FixtureWrapper provides a request which can be stubbed within a fixture.
 module FixtureWrapper
   def stub_get(path, fixture:, status: 200, headers: {"Content-Type" => "application/json"})
     stub_request(path, response: stub_response(fixture:, status:, headers:))

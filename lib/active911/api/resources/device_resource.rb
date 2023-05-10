@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module Active911::API::Resources
+  # DeviceResource is a representation of the Agency API endpoint
   class DeviceResource < Active911::API::Resource
     def show(device_id:)
       result = get_request("devices/#{device_id}")
