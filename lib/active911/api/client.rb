@@ -61,8 +61,7 @@ module Active911::API
     end
 
     def access_token
-      if @api_key.nil? || @api_key_expiration.nil? || (@api_key_expiration < Time.now.to_i)
-
+      if access_token_needs_refreshing?
         refresh_access_token
       end
     end
@@ -88,6 +87,16 @@ module Active911::API
       rescue JSON::ParserError
         raise Error, "Invalid response from Active911 API: #{response.body}"
       end
+    end
+
+    def access_token_needs_refreshing?
+      not_initialized?(@api_key) or
+        not_initialized?(@api_key_expiration) or
+        (@api_key_expiration < Time.now.to_i)
+    end
+
+    def not_initialized?(var)
+      !var
     end
   end
 end

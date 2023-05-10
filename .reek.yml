@@ -4,6 +4,34 @@ exclude_paths:
   - vendor
 
 detectors:
+  DataClump:
+    enabled: false
+  DuplicateMethodCall:
+    enabled: false
+  FeatureEnvy:
+    enabled: false
+  InstanceVariableAssumption:
+    enabled: false
+  IrresponsibleModule:
+    enabled: false
+  LongParameterList:
+    max_params: 4
+  NestedIterators:
+    enabled: true
+    exclude: []
+    max_allowed_nesting: 2
+    ignore_iterators:
+      - tap
+  TooManyInstanceVariables:
+    max_instance_variables: 5
+  TooManyStatements:
+    max_statements: 15
   UncommunicativeModuleName:
     accept:
       - Active
+  UncommunicativeVariableName:
+    accept:
+      - f
+      - o
+  UtilityFunction:
+    enabled: false
