@@ -28,6 +28,7 @@ Dotenv.load
 # result.message.alert.responses
 # result
 
-result = @client.device.get(device_id: 590705)
-result
+# result = @client.device.get(device_id: 590705)
+# result
+
 IRB.start(__FILE__)

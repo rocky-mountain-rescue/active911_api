@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe Active911::API::Resources::ResourceResource do
+RSpec.describe(Active911::API::Resources::ResourceResource) do
   include_context("with required environmental variables")
   include_context("with Active911::API::Client api_key request stub")
 

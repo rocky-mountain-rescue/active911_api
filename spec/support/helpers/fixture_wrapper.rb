@@ -28,7 +28,7 @@ module FixtureWrapper
   def stub_request(path, response:, method: :get, body: {})
     Faraday::Adapter::Test::Stubs.new do |stub|
       arguments = [method, "/v2/#{path}"]
-      arguments << body.to_json if %i[post put patch].include?(method)
+      arguments << body.to_json if [:post, :put, :patch].include?(method)
       stub.send(*arguments) { |_env| response }
     end
   end
@@ -36,7 +36,7 @@ module FixtureWrapper
   def stub_auth_request(response:, method: :get, body: {})
     Faraday::Adapter::Test::Stubs.new do |stub|
       arguments = [method, "/v2/#{path}"]
-      arguments << body.to_json if %i[post put patch].include?(method)
+      arguments << body.to_json if [:post, :put, :patch].include?(method)
       stub.send(*arguments) { |_env| response }
     end
   end

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe Active911::API::Model do
+RSpec.describe(Active911::API::Model) do
   it "is a class" do
     expect(described_class).to(be_a(Class))
   end
