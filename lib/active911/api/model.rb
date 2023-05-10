@@ -16,7 +16,7 @@ module Active911::API
       when Hash
         OpenStruct.new(obj.transform_values { |val| to_ostruct(val) })
       when Array
-        obj.map { |o| to_ostruct(o) }
+        obj.map { |array_element| to_ostruct(array_element) }
       else
         # Assumed to be a primitive value
         obj

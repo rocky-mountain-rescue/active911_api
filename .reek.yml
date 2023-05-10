@@ -29,9 +29,5 @@ detectors:
   UncommunicativeModuleName:
     accept:
       - Active
-  UncommunicativeVariableName:
-    accept:
-      - f
-      - o
   UtilityFunction:
     enabled: false

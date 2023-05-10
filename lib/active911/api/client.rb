@@ -69,9 +69,9 @@ module Active911::API
     private
 
     def refresh_access_token
-      conn = Faraday.new("https://console.active911.com/interface/dev/api_access.php") do |f|
-        f.adapter(@adapter, @stubs)
-        f.request(:url_encoded)
+      conn = Faraday.new("https://console.active911.com/interface/dev/api_access.php") do |faraday|
+        faraday.adapter(@adapter, @stubs)
+        faraday.request(:url_encoded)
       end
 
       response = conn.post("", refresh_token: api_refresh_key)
