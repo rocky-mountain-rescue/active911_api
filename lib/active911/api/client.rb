@@ -10,6 +10,8 @@ module Active911::API
     attr_reader :adapter, :api_key, :api_key_expiration, :api_refresh_key
 
     def initialize(api_refresh_key:, adapter: Faraday.default_adapter, stubs: nil)
+      @api_key = nil
+      @api_key_expiration = nil
       @api_refresh_key = api_refresh_key
       @adapter = adapter
       @stubs = stubs
