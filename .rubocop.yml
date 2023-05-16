@@ -19,6 +19,8 @@ Style/ClassMethodsDefinitions:
   Enabled: false # allow class methods to be defined before instance methods
 Style/ClassAndModuleChildren:
   Enabled: false # allow nested classes and modules
+Style/ModuleFunction:
+  Enabled: false
 Style/OpenStructUse:
   Enabled: false # allow OpenStruct
 Style/TrailingCommaInArguments:

@@ -4,8 +4,19 @@ require "faraday"
 require "faraday/middleware"
 
 module Active911::API
+  # Namespace for the API utilities
+  module ClientUtils
+    module_function
+
+    def not_initialized?(var)
+      !var
+    end
+  end
+
   # Client is the main entry point for making requests to the Active911 API.
   class Client
+    include ClientUtils
+
     BASE_URL = ENV.fetch("ACTIVE911_BASE_URL", "https://access.active911.com/interface/open_api/api/")
 
     attr_reader :adapter, :api_key, :api_key_expiration, :api_refresh_key
@@ -96,10 +107,6 @@ module Active911::API
       not_initialized?(@api_key) or
         not_initialized?(@api_key_expiration) or
         (@api_key_expiration < Time.now.to_i)
-    end
-
-    def not_initialized?(var)
-      !var
     end
   end
 end

@@ -10,9 +10,6 @@ detectors:
     enabled: false
   FeatureEnvy:
     enabled: false
-  UtilityFunction:
-    enabled: false
-
 
   #
   # Project rules
@@ -35,3 +32,5 @@ detectors:
     max_instance_variables: 5
   TooManyStatements:
     max_statements: 15
+  UtilityFunction:
+    enabled: false

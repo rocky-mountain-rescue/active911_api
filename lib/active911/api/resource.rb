@@ -1,10 +1,19 @@
 # frozen_string_literal: true
 
 module Active911::API
+  # Namespace for Resource Utils
+  module ResourceUtils
+    def self.error_meta_info(body)
+      body["meta"].to_s
+    end
+  end
+
   # Resource class uses the Faraday connection encapsulated by connection
   # to talk to the Active911 API. Individual Resource API endpoints classes
   # inherit from this class.
   class Resource
+    include ResourceUtils
+
     attr_reader :client
 
     def initialize(client)
@@ -55,12 +64,6 @@ module Active911::API
       end
 
       response
-    end
-
-    private
-
-    def error_meta_info(body)
-      body["meta"].to_s
     end
   end
 end
