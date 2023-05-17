@@ -6,8 +6,6 @@ exclude_paths:
 detectors:
   DataClump:
     enabled: false
-  DuplicateMethodCall:
-    enabled: false
   FeatureEnvy:
     enabled: false
 

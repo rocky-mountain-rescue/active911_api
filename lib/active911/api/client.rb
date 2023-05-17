@@ -82,6 +82,16 @@ module Active911::API
 
     private
 
+    def access_token_needs_refreshing?
+      not_initialized?(@api_key) or
+        not_initialized?(@api_key_expiration) or
+        (@api_key_expiration < Time.now.to_i)
+    end
+
+    def raise_error(error_message)
+      raise Error, error_message
+    end
+
     def refresh_access_token
       conn = Faraday.new("https://console.active911.com/interface/dev/api_access.php") do |faraday|
         faraday.adapter(@adapter, @stubs)
@@ -89,24 +99,20 @@ module Active911::API
       end
 
       response = conn.post("", refresh_token: api_refresh_key)
+      body = response.body
+      error_message = "Invalid response from Active911 API: #{body}"
       unless response.status == 200
-        raise Error, "Invalid response from Active911 API: #{response.body}"
+        raise Error, error_message
       end
 
       begin
-        body_parsed = JSON.parse(response.body)
+        body_parsed = JSON.parse(body)
         @api_key = body_parsed["access_token"]
         @api_key_expiration = body_parsed["expiration"]
         body_parsed
       rescue JSON::ParserError
-        raise Error, "Invalid response from Active911 API: #{response.body}"
+        raise_error(error_message)
       end
-    end
-
-    def access_token_needs_refreshing?
-      not_initialized?(@api_key) or
-        not_initialized?(@api_key_expiration) or
-        (@api_key_expiration < Time.now.to_i)
     end
   end
 end

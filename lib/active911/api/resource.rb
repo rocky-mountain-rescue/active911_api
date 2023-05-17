@@ -48,22 +48,19 @@ module Active911::API
     end
 
     def handle_response(response)
+      body = response.body
       case response.status
-      when 400
-        raise Error, response.body
-      when 401
-        raise Error, response.body
-      when 403
-        raise Error, response.body
-      when 404
-        raise Error, response.body
-      when 429
-        raise Error, response.body
-      when 500
-        raise Error, response.body
+      when 400, 401, 403, 404, 429, 500
+        raise_error_with_body(body)
       end
 
       response
+    end
+
+    private
+
+    def raise_error_with_body(body)
+      raise Error, body
     end
   end
 end
