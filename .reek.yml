@@ -4,8 +4,6 @@ exclude_paths:
   - vendor
 
 detectors:
-  DataClump:
-    enabled: false
   FeatureEnvy:
     enabled: false
 
@@ -15,6 +13,11 @@ detectors:
   UncommunicativeModuleName:
     accept:
       - Active911
+  DataClump:
+    enabled: true
+    exclude:
+      - FixtureWrapper
+      - Active911::API::Resource
   #
   # Global Rules
   #
