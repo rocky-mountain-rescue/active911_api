@@ -4,9 +4,6 @@ exclude_paths:
   - vendor
 
 detectors:
-  FeatureEnvy:
-    enabled: false
-
   #
   # Project rules
   #
@@ -17,6 +14,11 @@ detectors:
     enabled: true
     exclude:
       - FixtureWrapper
+      - Active911::API::Resource
+  FeatureEnvy:
+    enabled: true
+    exclude:
+      - Active911::API::Client
       - Active911::API::Resource
   #
   # Global Rules
