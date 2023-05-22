@@ -70,7 +70,7 @@ module Active911::API
       "#<#{self.class.name} api_refresh_key=#{api_refresh_key.inspect}>"
     end
 
-    def api_key_from_refesh_key
+    def api_key_from_refresh_key
       @api_key = connection.post("token", {refresh_token: api_refresh_key})
     end
 
