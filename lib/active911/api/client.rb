@@ -39,31 +39,31 @@ module Active911::API
     end
 
     def agency
-      AgencyResource.new(self)
+      Active911::API::Resources::AgencyResource.new(self)
     end
 
     def device
-      DeviceResource.new(self)
+      Active911::API::Resources::DeviceResource.new(self)
     end
 
     def alerts
-      AlertsResource.new(self)
+      Active911::API::Resources::AlertsResource.new(self)
     end
 
     def alert
-      AlertsResource.new(self)
+      Active911::API::Resources::AlertsResource.new(self)
     end
 
     def locations
-      LocationsResource.new(self)
+      Active911::API::Resources::LocationsResource.new(self)
     end
 
     def location
-      LocationsResource.new(self)
+      Active911::API::Resources::LocationsResource.new(self)
     end
 
     def resource
-      ResourceResource.new(self)
+      Active911::API::Resources::ResourceResource.new(self)
     end
 
     def inspect
