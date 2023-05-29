@@ -190,7 +190,7 @@ returned API object describing the agency and agency associated devices.
 
 ### Alerts
 
-To obtain information about all the agency locations normally available via the
+To obtain information about all the alerts normally available via the
 Active 911 API URL `https://access.active911.com/interface/open_api/api/alerts`,
 issue the following call:
 
@@ -227,7 +227,7 @@ The API returns a JSON object that is formatted as follows:
 
 ### Alert 
 
-To obtain information about all the agency locations normally available via the
+To obtain information about a specific alert normally available via the
 Active 911 API URL `https://access.active911.com/interface/open_api/api/alerts/:id`, 
 issue the following client method call: 
 
@@ -352,7 +352,7 @@ The API returns a JSON object that is formatted as follows:
 
 ### Map Resources
 
-To obtain information about map resource normally available via the Active 911 
+To obtain information about a specific map resource normally available via the Active 911 
 API URL `https://access.active911.com/interface/open_api/api/resources/:id`, 
 issue the following client method call:
 
