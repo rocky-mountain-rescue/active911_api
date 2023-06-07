@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.email = ["p.osiczko@tetrapyloctomy.org"]
   spec.homepage = "https://github.com/rockymountainrescue/active911_api"
   spec.summary = "Active91 API in Ruby"
-  spec.license = "Hippocratic-2.1"
+  spec.license = "MIT"
 
   spec.metadata = {"label" => "Active911 API", "rubygems_mfa_required" => "true"}
 

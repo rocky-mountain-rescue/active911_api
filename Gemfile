@@ -25,6 +25,7 @@ end
 
 group :tools do
   gem "amazing_print", "~> 1.4"
+  gem "bundler-audit"
   gem "debug", "~> 1.7"
 end
 
