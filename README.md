@@ -23,8 +23,8 @@ Documentation for the [Active 911 API is available](https://active911.atlassian.
   - [Development](#development)
   - [Tests](#tests)
   - [License](#license)
-  - [Security]()(#security)
-  - [Versions]()(#versions)
+  - [Security](#security)
+  - [Versions](#versions)
   - [Credits](#credits)
 
 <!-- Tocer[finish]: Auto-generated, don't remove. -->
@@ -414,7 +414,7 @@ bin/rake
 
 ## [Security](https://github.com/rocky-mountain-rescue/active911_api/issues)
 
-## [Versions]()
+## [Versions](https://github.com/rocky-mountain-rescue/active911_api/Versions.md)
 
 ## Credits
 
